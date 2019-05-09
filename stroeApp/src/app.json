@@ -3,7 +3,10 @@
     "pages/index/main",
     "pages/logs/main",
     "pages/counter/main",
-    "pages/user/main"
+    "pages/user/main",
+    "pages/login/main",
+    "pages/register/main",
+    "pages/userindex/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

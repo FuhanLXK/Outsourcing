@@ -7,6 +7,32 @@
               </swiper-item>
           </block>
       </swiper>
+      <div class="icon_box_button border">
+          <div>
+            <div style="background-color:aquamarine;"></div>
+          </div>
+          <div>
+            <div style="background:rgb(52, 147, 236);"></div>
+          </div>
+          <div>
+            <div style="background:rgb(241, 180, 65"></div>
+          </div>
+          <div>
+            <div style="background:rgb(240, 116, 213)"></div>
+          </div>
+          <div>
+            <div style="background:rgb(248, 86, 113)"></div>
+          </div>
+          <div>
+            <div style="background:rgb(136, 238, 221)"></div>
+          </div>
+          <div>
+            <div style="background:rgb(165, 165, 165)"></div>
+          </div>
+          <div>
+            <div style="background:rgb(204, 170, 170)"></div>
+          </div>
+      </div>
       <div class="index_box_button">
           <div class="conter_box_div">
               <div>
@@ -52,6 +78,9 @@ export default {
 </script>
 
 <style scoped>
+.border{
+  flex-wrap: wrap;
+}
 .swiper{
   height: 350rpx;
 }
@@ -75,11 +104,28 @@ export default {
 .body_barfroud{
   background-color: #CCC;
 }
+.icon_box_button>div>div{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  border-radius: 100rpx;
+  margin-bottom: 20rpx;
+}
+.icon_box_button>div{
+  width:167rpx;
+  text-align: center;
+}
+.icon_box_button{
+  width:90%;
+  display: flex;
+  justify-content: center;
+  margin: 40rpx auto;
+}
 .index_box_button{
   width:90%;
   justify-content:space-between;
   display: flex;
-  margin: 40rpx auto;
+  margin: 10rpx auto;
 }
 .index_box_button>div{
   width: 320rpx;
