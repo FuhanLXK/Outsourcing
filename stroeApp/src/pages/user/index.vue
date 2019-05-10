@@ -1,17 +1,35 @@
 <template>
   <div>   
-    <div class="user_reactp_box">
-      <!-- <img src="" alt=""> -->
-    </div>
-    
-    <div class="user_title_box">
-      <p>您还没登陆哦！</p>
-      <p>快去登陆让老师带领你走进学习的海洋吧！</p>
-    </div>
-    
-    <div class="user_btn_box">
-      <a href="/pages/login/main">学生登录</a>
-      <a href="/pages/register/main">老师注册</a>
+    <div class="smone_box_user">
+      <div class="user_box_odiv">
+
+         <div class="suser_display_class">
+           <div>
+             <img src="/static/images/timg.jpg" alt="">
+           </div>
+           <p class="loginlo_btn_odiv">退出登录</p>
+         </div>
+
+         <div class="font_box_div">
+           <h5>ZC8888</h5>
+           <p>手机号：15922802127</p>
+         </div>
+
+      </div>
+      <div class="user_two_div">
+        <div class="padding_silod">
+          <img class="imgs_big" src="/static/images/xinxi.png" alt="">
+          <p>我的消息</p>
+        </div>
+        <div class="padding_silod_new">
+          <img class="imgs_big_new" src="/static/images/dayi.png" alt="">
+          <p>我的答疑</p>
+        </div>
+        <div class="padding_silod_new">
+          <img class="imgs_big_new" src="/static/images/ziliao.png" alt="">
+          <p>我的资料</p>
+        </div>
+      </div>
     </div>
     <!-- <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a> -->
   </div>
@@ -34,83 +52,81 @@ export default {
 </script>
 
 <style scoped>
-.user_btn_box>a{
-  margin: 0 auto;
-  background-color:rgb(255, 186, 86);
-  color:#FFF;
-  padding: 20rpx 40rpx;
-  border-radius: 20rpx; 
+.padding_silod_new{
+  margin-top: 13rpx
 }
-.user_btn_box{
-  justify-content: space-between;
-  width: 100%;
-  display: flex;
-  margin-top: 60rpx;
+.padding_silod{
+  margin-top: 30rpx;
 }
-.user_title_box{
+.imgs_big_new{
+  width:60rpx;
+  height: 60rpx;
+}
+.imgs_big{
+  width: 40rpx;
+  height: 40rpx;
+}
+.user_two_div>div{
+  width: 33.3%;
   text-align: center;
-  font-size: 35rpx;
-  line-height: 70rpx;
-  margin-top: 200rpx;
-  margin-left: 40rpx;
 }
-.user_reactp_box{
-  border-radius: 200rpx;
-  width: 160rpx;
-  height: 160rpx;
-  margin: 0 auto;
-  background-color: #f5f5f5;
+.user_two_div>div>p{
+  font-size:28rpx;
+}
+.user_two_div{
+  display:flex;
+}
+.font_box_div{
+  margin-top: 28rpx;
   position: relative;
-  top:160rpx;
+  left:-20rpx;
 }
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.font_box_div>p{
+  font-size: 25rpx;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.font_box_div>h5{
+  color:#666;
+  margin-bottom: 10rpx;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.loginlo_btn_odiv{
+  padding: 5rpx;
+  width: 100rpx;
+  font-size: 25rpx;
+  position: relative;
+  top:-25rpx;
+  border:1px solid #666;
+  border-radius: 10rpx;
+  text-align: center;
+  left:80rpx;
+  color:#666;
 }
-
-.usermotto {
-  margin-top: 150px;
+.suser_display_class>div>img{
+  width: 100%;
+  height: 100%;
 }
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
+.suser_display_class>div{
+  width: 130rpx;
+  overflow: hidden;
+  height: 130rpx;
+  border-radius: 130rpx;
+  border:2px solid #ffba56;
+  margin: 0 auto;
+  position: relative;
+  top:-50rpx;
 }
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
+.suser_display_class{
+  height: 160rpx;
+  width: 40%;
 }
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
+.user_box_odiv{
+  display:flex;
 }
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
-
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
+.smone_box_user{
+  width: 670rpx;
+  height: 320rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  margin-top: 60rpx;
+  box-shadow: 0.5px 0px 15px 5px #f5f5f5;
 }
 </style>

@@ -32,12 +32,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "用户",
-					"pathName": "pages/user/main",
+					"pathName": "pages/userConst/main",
 					"query": "",
 					"scene": null
 				},

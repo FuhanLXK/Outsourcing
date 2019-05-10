@@ -42,15 +42,24 @@ export default {
         },
         success: function (res) {
           if (res.data.code === 1) {
-            // wx.showToast({
-            //   title: '登录成功',
-            //   icon: 'success',
-            //   duration: 2000
-            // })
             wx.switchTab({
-              url: '../index/main'
+              url: '../index/main',
+              success: function () {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
             })
             console.log(res)
+          } else {
+            console.log(res)
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 2000
+            })
           }
         }
       })
