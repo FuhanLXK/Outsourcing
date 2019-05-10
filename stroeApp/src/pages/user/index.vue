@@ -11,7 +11,7 @@
          </div>
 
          <div class="font_box_div">
-           <h5>ZC8888</h5>
+           <h5>桐谷和人</h5>
            <p>手机号：15922802127</p>
          </div>
 
