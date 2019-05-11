@@ -1,18 +1,18 @@
 <template>
-  <div>   
+  <div v-if="userData">   
     <div class="smone_box_user">
       <div class="user_box_odiv">
 
          <div class="suser_display_class">
            <div>
-             <img src="/static/images/timg.jpg" alt="">
+             <img :src="'http://mp.todojs.cn/'+userData.avatar" alt="">
            </div>
            <p class="loginlo_btn_odiv">退出登录</p>
          </div>
 
          <div class="font_box_div">
-           <h5>桐谷和人</h5>
-           <p>手机号：15922802127</p>
+           <h5>{{userData.username}}</h5>
+           <p>手机号：{{userData.mobile}}</p>
          </div>
 
       </div>
@@ -36,9 +36,12 @@
 </template>
 
 <script>
+import store from '@/store.js'
 export default {
   data () {
-    return {}
+    return {
+      userData: null
+    }
   },
 
   components: {},
@@ -46,7 +49,13 @@ export default {
   methods: {},
 
   created () {
+    this.modelStatus = store.state.statuse
     // let app = getApp()
+  },
+  onShow () {},
+  mounted () {
+    this.userData = store.state.userData
+    console.log(this.userData, '用户数据')
   }
 }
 </script>

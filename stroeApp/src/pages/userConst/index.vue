@@ -23,11 +23,12 @@
 <script>
 
 import UserPages from '../user/index'
+import store from '@/store.js'
 
 export default {
   data () {
     return {
-      modelStatus: false
+      modelStatus: ''
     }
   },
 
@@ -36,9 +37,22 @@ export default {
   },
 
   methods: {},
-
-  created () {
-    // let app = getApp()
+  mounted () {
+    console.log('触发')
+  },
+  onShow () {
+    console.log(store.state.statuse)
+    this.modelStatus = store.state.statuse
+  },
+  computed: {
+    Login: function () {
+      return store.state.statuse
+    }
+  },
+  watch: {
+    Login () {
+      console.log('监听到了')
+    }
   }
 }
 </script>

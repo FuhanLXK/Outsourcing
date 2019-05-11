@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import store from '@/store.js'
 export default {
   data () {
     return {
@@ -42,8 +43,13 @@ export default {
         },
         success: function (res) {
           if (res.data.code === 1) {
+            store.commit('GET_LOGIN', false)
+            store.commit('GET_LOGINUSERDATA', res.data.data.userinfo)
+            // wx.setStorageSync('', false)
+
+            // console.log(wx.getStorageSync('loginStatus'))
             wx.switchTab({
-              url: '../index/main',
+              url: '../userConst/main',
               success: function () {
                 wx.showToast({
                   title: res.data.msg,
