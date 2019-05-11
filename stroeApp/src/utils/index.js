@@ -22,3 +22,7 @@ export default {
   formatNumber,
   formatTime
 }
+
+export function $http () {
+  return 'http://mp.todojs.cn'
+}

@@ -7,7 +7,7 @@
            <div>
              <img :src="'http://mp.todojs.cn/'+userData.avatar" alt="">
            </div>
-           <p class="loginlo_btn_odiv">退出登录</p>
+           <p class="loginlo_btn_odiv" @click="loutginEvent">退出登录</p>
          </div>
 
          <div class="font_box_div">
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { $http } from '@/utils/index'
 import store from '@/store.js'
 export default {
   data () {
@@ -46,7 +47,35 @@ export default {
 
   components: {},
 
-  methods: {},
+  methods: {
+    loutginEvent () {
+      wx.request({
+        url: $http() + '/api/user/logout',
+        data: {
+          token: this.userData.token
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          console.log(res)
+          if (res.data.code === 1) {
+            store.commit('GET_LOGIN', true)
+            wx.switchTab({
+              url: '../index/main',
+              success: function () {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            })
+          }
+        }
+      })
+    }
+  },
 
   created () {
     this.modelStatus = store.state.statuse

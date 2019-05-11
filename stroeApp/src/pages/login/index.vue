@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { $http } from '@/utils/index'
 import store from '@/store.js'
 export default {
   data () {
@@ -33,7 +34,7 @@ export default {
     userLoginAdmin () {
       let _this = this
       wx.request({
-        url: 'http://mp.todojs.cn/api/user/login',
+        url: $http() + '/api/user/login',
         data: {
           account: _this.username,
           password: _this.userpassword

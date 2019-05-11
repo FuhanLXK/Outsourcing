@@ -13,6 +13,14 @@
               <input type="text" v-model="name" />
           </div>
           <div class="user_name_input">
+              <label for="">邮箱：</label>
+              <input type="" v-model="emilNumber"/>
+          </div>
+          <div class="user_name_input">
+              <label for="">手机号：</label>
+              <input type="" v-model="iphone"/>
+          </div>
+          <!-- <div class="user_name_input">
               <label for="">职位：</label>
               <input type="text" v-model="jobs" />
           </div>
@@ -43,10 +51,6 @@
               <input type="" v-model="organization"/>
           </div>
           <div class="user_name_input">
-              <label for="">邮箱：</label>
-              <input type="" v-model="emilNumber"/>
-          </div>
-          <div class="user_name_input">
               <label for="">固定电话：</label>
               <input type="" v-model="phone"/>
           </div>
@@ -65,17 +69,14 @@
           <div class="user_name_input">
               <label for="">备注：</label>
               <input type="" v-model="textEresn"/>
-          </div>
-          <div class="user_name_input">
-              <label for="">手机号：</label>
-              <input type="" v-model="iphone"/>
-          </div>
+          </div> -->
       </div>
       <button href="" class="a_butonn_ds" @click="userLoginAdmin">立即注册</button>
   </div>
 </template>
 
 <script>
+import { $http } from '@/utils/index'
 export default {
   data () {
     return {
@@ -104,7 +105,7 @@ export default {
     userLoginAdmin () {
       let _this = this
       wx.request({
-        url: 'http://mp.todojs.cn/api/user/register',
+        url: $http() + '/api/user/register',
         data: {
           username: _this.userName,
           name: _this.name,

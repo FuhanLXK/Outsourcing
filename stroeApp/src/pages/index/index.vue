@@ -49,6 +49,15 @@
               <img src="/static/images/shu.png" alt="">
           </div>
       </div>
+      <div class="index_box_button">
+          <div class="conter_box_div">
+              <div>
+                  <span>名校名师</span><br>
+                  <span style="font-size:25rpx;">查自己战斗力吧！</span>
+              </div>
+              <img src="/static/images/paihang.png" alt="">
+          </div>
+      </div>
   </div>
 </template>
 
@@ -126,6 +135,7 @@ export default {
   justify-content:space-between;
   display: flex;
   margin: 10rpx auto;
+  margin-bottom: 20rpx;
 }
 .index_box_button>div{
   width: 320rpx;
