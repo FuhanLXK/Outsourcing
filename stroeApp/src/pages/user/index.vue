@@ -5,7 +5,7 @@
 
          <div class="suser_display_class">
            <div>
-             <img :src="'http://mp.todojs.cn/'+userData.avatar" alt="">
+             <img :src="userData.avatar" alt="">
            </div>
            <p class="loginlo_btn_odiv" @click="loutginEvent">退出登录</p>
          </div>
@@ -25,11 +25,26 @@
           <img class="imgs_big_new" src="/static/images/dayi.png" alt="">
           <p>我的答疑</p>
         </div>
-        <div class="padding_silod_new">
+        <div class="padding_silod_new" @click="modiFication">
           <img class="imgs_big_new" src="/static/images/ziliao.png" alt="">
-          <p>我的资料</p>
+          <p>我的信息</p>
         </div>
       </div>
+    </div>
+    <!--学生-->
+    <div v-if="statusTeach" class="magrin_auto_user">
+        <ul>
+          <li>每日签到</li>
+          <li>我的资料</li>
+        </ul>
+    </div>
+    <!--老师-->
+    <div v-else class="magrin_auto_user">
+        <ul>
+          <li>我的资料</li>
+          <li>发资料</li>
+          <li>审批学生</li>
+        </ul>
     </div>
     <!-- <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a> -->
   </div>
@@ -41,7 +56,8 @@ import store from '@/store.js'
 export default {
   data () {
     return {
-      userData: null
+      userData: null,
+      statusTeach: null /* 判断是否为老师 */
     }
   },
 
@@ -74,6 +90,11 @@ export default {
           }
         }
       })
+    },
+    modiFication () {
+      wx.navigateTo({
+        url: '../modification/main'
+      })
     }
   },
 
@@ -81,15 +102,31 @@ export default {
     this.modelStatus = store.state.statuse
     // let app = getApp()
   },
-  onShow () {},
+  onShow () {
+    console.log('1')
+    this.statusTeach = this.userData.type === 'student' ? 'true' : false
+    console.log(this.statusTeach, '我是' + this.statusTeach)
+  },
   mounted () {
     this.userData = store.state.userData
-    console.log(this.userData, '用户数据')
+    this.statusTeach = this.userData.type === 'student' ? 'true' : false
+    console.log(this.statusTeach, '我是' + this.statusTeach)
   }
 }
 </script>
 
 <style scoped>
+.magrin_auto_user{
+  width: 670rpx;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  background-color: #FFF;
+  box-shadow: 0.5px 0px 15px 5px #f5f5f5;
+}
+.magrin_auto_user>ul>li{
+  padding: 25rpx;
+  font-size: 32rpx;
+}
 .padding_silod_new{
   margin-top: 13rpx
 }

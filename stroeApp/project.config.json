@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -56,9 +56,16 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "个人资料",
-					"pathName": "pages/userindex/main",
+					"pathName": "pages/user/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户修改",
+					"pathName": "pages/modification/main",
 					"query": "",
 					"scene": null
 				}

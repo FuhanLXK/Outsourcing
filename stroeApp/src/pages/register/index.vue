@@ -20,15 +20,11 @@
               <label for="">手机号：</label>
               <input type="" v-model="iphone"/>
           </div>
-          <!-- <div class="user_name_input">
-              <label for="">职位：</label>
-              <input type="text" v-model="jobs" />
-          </div>
           <div class="user_name_input">
               <label for="">密码：</label>
               <input type="password" v-model="userPassword"/>
           </div>
-          <div class="user_name_input">
+          <!-- <div class="user_name_input">
               <label for="">确认密码：</label>
               <input type="password" v-model="kendsPassword"/>
           </div>
@@ -55,6 +51,10 @@
               <input type="" v-model="phone"/>
           </div>
           <div class="user_name_input">
+              <label for="">职位：</label>
+              <input type="text" v-model="jobs" />
+          </div>
+          <div class="user_name_input">
               <label for="">QQ账号：</label>
               <input type="" v-model="qqName"/>
           </div>
@@ -76,6 +76,7 @@
 </template>
 
 <script>
+import store from '@/store.js'
 import { $http } from '@/utils/index'
 export default {
   data () {
@@ -113,7 +114,6 @@ export default {
           email: _this.emilNumber,
           mobile: _this.iphone,
           // wxid: _this.userpassword,
-          // bio: _this.userpassword,
           province: _this.province,
           city: _this.city,
           area: _this.area,
@@ -136,8 +136,10 @@ export default {
             duration: 2000
           })
           if (res.data.code === 1) {
+            store.commit('GET_LOGIN', false)
+            store.commit('GET_LOGINUSERDATA', res.data.data.userinfo)
             wx.switchTab({
-              url: '../index/main',
+              url: '../userConst/main',
               success: function () {
                 wx.showToast({
                   title: res.data.msg,
