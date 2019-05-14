@@ -34,15 +34,15 @@
     <!--学生-->
     <div v-if="statusTeach" class="magrin_auto_user">
         <ul>
-          <li>每日签到</li>
+          <li @click="RouterEventSinIn">每日签到</li>
           <li>我的资料</li>
         </ul>
     </div>
     <!--老师-->
     <div v-else class="magrin_auto_user">
         <ul>
-          <li>我的资料</li>
-          <li>发资料</li>
+          <li @click="RouterMySendEvent">我的资料</li>
+          <li @click="RouterOutSendEvent">发资料</li>
           <li>审批学生</li>
         </ul>
     </div>
@@ -64,6 +64,11 @@ export default {
   components: {},
 
   methods: {
+    RouterMySendEvent () {
+      wx.navigateTo({
+        url: '../mySend/main'
+      })
+    },
     loutginEvent () {
       wx.request({
         url: $http() + '/api/user/logout',
@@ -94,6 +99,16 @@ export default {
     modiFication () {
       wx.navigateTo({
         url: '../modification/main'
+      })
+    },
+    RouterEventSinIn () {
+      wx.navigateTo({
+        url: '../signIn/main'
+      })
+    },
+    RouterOutSendEvent () {
+      wx.navigateTo({
+        url: '../sendOut/main'
       })
     }
   },

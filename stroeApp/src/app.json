@@ -8,7 +8,12 @@
     "pages/register/main",
     "pages/userindex/main",
     "pages/user/main",
-    "pages/modification/main"
+    "pages/modification/main",
+    "pages/ranKing/main",
+    "pages/signIn/main",
+    "pages/teachUser/main",
+    "pages/sendOut/main",
+    "pages/mySend/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

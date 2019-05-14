@@ -35,14 +35,14 @@
       </div>
       <div class="index_box_button">
           <div class="conter_box_div">
-              <div>
+              <div @click="rangKingEvent">
                   <span>积分排行</span><br>
                   <span style="font-size:25rpx;">查自己战斗力吧！</span>
               </div>
               <img src="/static/images/paihang.png" alt="">
           </div>
           <div class="conter_box_div">
-              <div>
+              <div @click="teachUserEvent">
                   <span>资料跟读</span><br>
                   <span style="font-size:25rpx;">名师辅导效率高！</span>
               </div>
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+
+import store from '@/store.js'
 
 export default {
   data () {
@@ -69,9 +71,60 @@ export default {
 
   components: {},
 
-  methods: {},
+  methods: {
+    teachUserEvent () {
+      if (store.state.userData === '') {
+        wx.showModal({
+          title: '提示',
+          content: '您未登录哦，请先去登录，关注老师后即可开通资料跟读功能',
+          success (res) {
+            if (res.confirm) {
+              console.log('2')
+              wx.switchTab({
+                url: '../userConst/main'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      } else {
+        wx.navigateTo({
+          url: '../teachUser/main'
+        })
+      }
+    },
+    rangKingEvent () {
+      if (store.state.userData === '') {
+        wx.showModal({
+          title: '提示',
+          content: '您未登录哦，请先去登录',
+          success (res) {
+            if (res.confirm) {
+              console.log('2')
+              wx.switchTab({
+                url: '../userConst/main'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      } else {
+        wx.navigateTo({
+          url: '../ranKing/main'
+        })
+      }
+    }
+  },
 
   created () {
+    // wx.authorize({
+    //   scope: 'scope.userInfo',
+    //   success () {
+    //     wx.startRecord()
+    //   }
+    // })
     // let app = getApp()
   }
 }

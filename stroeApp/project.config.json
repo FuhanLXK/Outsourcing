@@ -6,7 +6,18 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"coverView": true,
+		"autoAudits": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
@@ -32,7 +43,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
@@ -67,6 +78,40 @@
 					"name": "用户修改",
 					"pathName": "pages/modification/main",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分排行",
+					"pathName": "pages/ranKing/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人签到",
+					"pathName": "pages/signIn/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "老师列表",
+					"pathName": "pages/teachUser/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发资料",
+					"pathName": "pages/sendOut/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的资料",
+					"pathName": "pages/mySend/main",
 					"scene": null
 				}
 			]
