@@ -4,7 +4,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     statuse: true,
-    userData: ''
+    userData: '',
+    teaderchData: null
   },
   mutations: {
     GET_LOGIN (state, status) {
@@ -12,7 +13,9 @@ const store = new Vuex.Store({
     },
     GET_LOGINUSERDATA (state, data) {
       this.state.userData = data
-      // console.log(this.state.userData, '用户数据')
+    },
+    GET_USERDATATEACHER (state, data) {
+      this.state.teaderchData = data
     }
   }
 })

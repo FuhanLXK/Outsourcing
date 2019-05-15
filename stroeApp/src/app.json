@@ -13,7 +13,8 @@
     "pages/signIn/main",
     "pages/teachUser/main",
     "pages/sendOut/main",
-    "pages/mySend/main"
+    "pages/mySend/main",
+    "pages/deTails/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

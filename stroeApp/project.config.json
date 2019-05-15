@@ -43,7 +43,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": 0,
@@ -112,6 +112,14 @@
 					"id": -1,
 					"name": "我的资料",
 					"pathName": "pages/mySend/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "详情资料",
+					"pathName": "pages/deTails/main",
+					"query": "",
 					"scene": null
 				}
 			]

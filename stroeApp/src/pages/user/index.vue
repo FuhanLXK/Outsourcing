@@ -107,6 +107,7 @@ export default {
       })
     },
     RouterOutSendEvent () {
+      store.commit('GET_USERDATATEACHER', '')
       wx.navigateTo({
         url: '../sendOut/main'
       })

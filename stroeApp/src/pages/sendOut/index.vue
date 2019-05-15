@@ -14,7 +14,8 @@
               <textarea maxlength="999999" type="text" v-model="subsBody" />
           </div>
           <div class="btn_uclass_ov">
-              <button @click="subitEventBox">发布资料</button>
+              <button v-if='stateConst' @click="subitEventBox">发布资料</button>
+              <button v-else @click="constEventBox">保存资料</button>
           </div>
       </div>
   </div>
@@ -29,7 +30,8 @@ export default {
     return {
       titile: '',
       desct: '',
-      subsBody: ''
+      subsBody: '',
+      stateConst: true
     }
   },
 
@@ -53,12 +55,67 @@ export default {
         },
         success: function (res) {
           console.log(res)
+          if (res.data.code === 1) {
+            wx.switchTab({
+              url: '../userConst/main',
+              success: function () {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            })
+          }
+        }
+      })
+    },
+    constEventBox () {
+      let _this = this
+      console.log(store.state.userData)
+      wx.request({
+        url: $http() + '/api/doc/edit',
+        data: {
+          id: store.state.teaderchData.id,
+          user_id: store.state.userData.user_id,
+          token: store.state.userData.token,
+          title: _this.titile,
+          desc: _this.desct,
+          content: _this.subsBody
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          console.log(res)
+          if (res.data.code === 1) {
+            wx.switchTab({
+              url: '../userConst/main',
+              success: function () {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            })
+          }
         }
       })
     }
   },
   mounted () {},
-  onShow () {},
+  onShow () {
+    this.titile = store.state.teaderchData.title
+    this.desct = store.state.teaderchData.desc
+    this.subsBody = store.state.teaderchData.content
+    console.log(store.state.teaderchData, '当前状态')
+    if (store.state.teaderchData !== '') {
+      this.stateConst = false
+    } else {
+      this.stateConst = true
+    }
+  },
   computed: {},
   watch: {}
 }
